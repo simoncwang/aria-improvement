@@ -69,6 +69,10 @@ public:
   bool global_key_space = false;
 
   PartitionStrategy strategy = PartitionStrategy::ROUND_ROBIN;
+
+   // ─── Add your two new fields here ───
+   int barrierDelayedPercent    = 0;  // corresponds to --barrier_delayed_percent
+   int barrierArtificialDelayMs = 0;  // corresponds to --barrier_artificial_delay_ms
 };
 } // namespace ycsb
 } // namespace aria

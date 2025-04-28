@@ -12,6 +12,12 @@ DEFINE_bool(two_partitions, false, "dist transactions access two partitions.");
 DEFINE_bool(pwv_ycsb_star, false, "ycsb keys dependency.");
 DEFINE_bool(global_key_space, false, "ycsb global key space.");
 
+
+// —— Add these two —— 
+DEFINE_int32(barrier_delayed_percent,    0,    "percent (out of 1000) of partitions to delay at the barrier");
+DEFINE_int32(barrier_artificial_delay_ms,0,    "how many ms each delayed partition should sleep before entering barrier");
+
+
 int main(int argc, char *argv[]) {
 
   google::InitGoogleLogging(argv[0]);
@@ -51,6 +57,9 @@ int main(int argc, char *argv[]) {
 
   aria::ycsb::Database db;
   db.initialize(context);
+
+  // disable core‐pinning on this run
+  context.cpu_affinity = false;
 
   aria::Coordinator c(FLAGS_id, db, context);
   c.connectToPeers();
