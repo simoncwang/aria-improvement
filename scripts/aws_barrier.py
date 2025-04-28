@@ -45,6 +45,8 @@ def print_ycsb():
         cmd = get_cmd_string(machine_id, ips, port + i)
         print(f'./bench_ycsb --logtostderr=1 --id={machine_id} --servers="{cmd}" --protocol=Aria --partition_num={partition_num} --threads={threads} --batch_size={batch_size} --read_write_ratio={read_write_ratio} --cross_ratio={cross_ratio} --keys={keys} --zipf={zipf} --barrier_delayed_percent={barrier_delayed_percent} --barrier_artificial_delay_ms={tts}')
 
+        # print(f'./bench_ycsb --logtostderr=1 --id={machine_id} --servers="{cmd}" --protocol=Aria --partition_num={partition_num} --threads={threads} --batch_size={batch_size} --read_write_ratio={read_write_ratio} --cross_ratio={cross_ratio} --keys={keys} --zipf={zipf}')
+
 
 def main():
   # ycsb
