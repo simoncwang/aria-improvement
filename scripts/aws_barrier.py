@@ -23,7 +23,7 @@ n_machines = len(ips)
 
 assert n_machines == 1, "we are expecting there is 1 machine."
 
-threads = 3
+threads = 4
 partition_num = threads
 batch_size = 1000
 
