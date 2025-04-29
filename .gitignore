@@ -1,6 +1,8 @@
-# Ignore all
+# Ignore all Byte-compiled / optimized / DLL files
 /*
 cmake/*
+scripts/__pycache__/
+run_all.sh
 
 
 ## Unignore the following extensions
