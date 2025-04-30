@@ -160,10 +160,11 @@ public:
 
       count++;
 
-      if ((rand() % 1000) < context.barrierDelayedPercent) {
-        std::this_thread::sleep_for(
-            std::chrono::microseconds(context.barrierArtificialDelayMs));
-      }
+      // Coordination delays (commented out for now because it is a separate experiment, but bring it back when you want to use it?)
+      // if ((rand() % 1000) < context.barrierDelayedPercent) {
+      //   std::this_thread::sleep_for(
+      //       std::chrono::microseconds(context.barrierArtificialDelayMs));
+      // }
 
       // run transactions
       auto result = transactions[i]->execute(id);
