@@ -39,6 +39,10 @@ public:
 
   bool write_to_w_ytd = true;
   bool payment_look_up = false;
+
+  int barrierDelayedPercent = 0;
+  int barrierArtificialDelayMs = 0;
+
 };
 } // namespace tpcc
 } // namespace aria

@@ -160,12 +160,26 @@ public:
 
       count++;
 
+      if ((rand() % 1000) < context.barrierDelayedPercent) {
+        std::this_thread::sleep_for(
+            std::chrono::microseconds(context.barrierArtificialDelayMs));
+      }
+
       // run transactions
       auto result = transactions[i]->execute(id);
       n_network_size.fetch_add(transactions[i]->network_size);
       if (result == TransactionResult::ABORT_NORETRY) {
         transactions[i]->abort_no_retry = true;
-      }
+      } 
+      
+      // else if (result == TransactionResult::ABORT) {
+      //           // ─── RANDOM BACKOFF ───
+      //           // sleep 0–49 microseconds before retrying to reduce conflicts
+      //           int backoff_us = rand() % 50;
+      //           std::this_thread::sleep_for(
+      //               std::chrono::microseconds(backoff_us));
+      // }
+
 
       if (count % context.batch_flush == 0) {
         flush_messages();
