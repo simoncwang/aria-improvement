@@ -144,9 +144,13 @@ public:
       // else only reset the query
 
       if (transactions[i] == nullptr || i >= n_abort) {
+      // if (transactions[i] == nullptr || i >= n_abort || transactions[i]->deferred) {
         auto partition_id = get_partition_id();
         transactions[i] =
             workload.next_transaction(context, partition_id, storages[i]);
+
+        // transactions[i]->deferred = false;
+
       } else {
         transactions[i]->reset();
       }
@@ -167,7 +171,27 @@ public:
       // }
 
       // run transactions
+      // this line below is normally here!
       auto result = transactions[i]->execute(id);
+
+
+      // Straggler code
+      // auto start = std::chrono::steady_clock::now();
+      // auto result = transactions[i]->execute(id);
+      // auto end = std::chrono::steady_clock::now();
+
+      // auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+      // transactions[i]->exec_time_us = duration;
+      // n_network_size.fetch_add(transactions[i]->network_size);
+
+      // const int STRAGGLER_THRESHOLD_US = 10000;  // Tune this as needed
+      // if (duration > STRAGGLER_THRESHOLD_US) {
+      //   transactions[i]->deferred = true;
+      //   continue;  // skip reservation; defer this txn to next batch
+      // }
+
+
+
       n_network_size.fetch_add(transactions[i]->network_size);
       if (result == TransactionResult::ABORT_NORETRY) {
         transactions[i]->abort_no_retry = true;

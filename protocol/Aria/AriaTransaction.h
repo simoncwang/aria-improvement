@@ -174,6 +174,10 @@ public:
   bool execution_phase;
   bool waw, war, raw;
 
+  uint64_t exec_time_us = 0;
+  bool deferred = false;
+
+
   // read_key, id, key_offset
   std::function<void(AriaRWKey &, std::size_t, std::size_t)> readRequestHandler;
 
