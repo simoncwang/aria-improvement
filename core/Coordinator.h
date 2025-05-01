@@ -45,6 +45,9 @@ public:
 
   void start() {
 
+    int adaptive_batch_size = context.batch_size;
+
+
     // init dispatcher vector
     iDispatchers.resize(context.io_thread_num);
     oDispatchers.resize(context.io_thread_num);
@@ -122,6 +125,29 @@ public:
         n_network_size += workers[i]->n_network_size.load();
         workers[i]->n_network_size.store(0);
       }
+
+      // Adaptive batch sizing
+      double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
+      (n_commit + 1);  // avoid divide-by-zero
+
+      bool adaptive_batch_enabled = true;
+
+      // Batch sizing code, uncomment when you want to use it 
+
+      // if (adaptive_batch_enabled) {
+      //   double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
+      //                       (n_commit + 1);
+      
+      //   if (abort_rate > 0.25 && adaptive_batch_size > 100) {
+      //     adaptive_batch_size /= 2;
+      //     LOG(INFO) << "High abort rate. Shrinking batch size to " << adaptive_batch_size;
+      //   } else if (abort_rate < 0.05 && adaptive_batch_size < 4000) {
+      //     adaptive_batch_size *= 2;
+      //     LOG(INFO) << "Low abort rate. Increasing batch size to " << adaptive_batch_size;
+      //   }
+      // }
+      
+      
 
       LOG(INFO) << "commit: " << n_commit << " abort: "
                 << n_abort_no_retry + n_abort_lock + n_abort_read_validation
