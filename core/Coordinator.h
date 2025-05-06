@@ -44,6 +44,8 @@ public:
   ~Coordinator() = default;
 
   void start() {
+    LOG(INFO) << "Barrier Delayed Percent: " << context.barrierDelayedPercent;
+    LOG(INFO) << "Barrier Artificial Delay Ms: " << context.barrierArtificialDelayMs;
 
     int adaptive_batch_size = context.batch_size;
 
@@ -126,38 +128,70 @@ public:
         workers[i]->n_network_size.store(0);
       }
 
-      // Adaptive batch sizing
-      double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
-      (n_commit + 1);  // avoid divide-by-zero
+      double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock +
+                                 n_abort_read_validation) /
+                          (n_commit + 1); // avoid divide-by-zero
 
-      bool adaptive_batch_enabled = true;
+      // Introduce artificial delays for a percentage of transactions
+      // if (context.barrierDelayedPercent > 0 && context.barrierArtificialDelayMs > 0) {
+      //     int total_transactions = n_commit + n_abort_no_retry + n_abort_lock + n_abort_read_validation;
+      //     int delayed_transactions = (total_transactions * context.barrierDelayedPercent) / 100;
 
-      // Batch sizing code, uncomment when you want to use it 
-
-      // if (adaptive_batch_enabled) {
-      //   double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
-      //                       (n_commit + 1);
-      
-      //   if (abort_rate > 0.25 && adaptive_batch_size > 100) {
-      //     adaptive_batch_size /= 2;
-      //     LOG(INFO) << "High abort rate. Shrinking batch size to " << adaptive_batch_size;
-      //   } else if (abort_rate < 0.05 && adaptive_batch_size < 4000) {
-      //     adaptive_batch_size *= 2;
-      //     LOG(INFO) << "Low abort rate. Increasing batch size to " << adaptive_batch_size;
+      //     if (delayed_transactions > 0) {
+      //       int delay_per_transaction = static_cast<int>(
+      //           static_cast<double>(context.barrierArtificialDelayMs) / delayed_transactions);
+        
+      //       LOG(INFO) << "Delays " << context.barrierArtificialDelayMs;
+        
+      //       LOG(INFO) << "Delaying " << delayed_transactions
+      //                 << " transactions by " << delay_per_transaction << " ms each.";
+        
+      //       for (int i = 0; i < delayed_transactions; i++) {
+      //           std::this_thread::sleep_for(std::chrono::milliseconds(delay_per_transaction));
+      //       }
       //   }
       // }
-      
-      
 
-      LOG(INFO) << "commit: " << n_commit << " abort: "
-                << n_abort_no_retry + n_abort_lock + n_abort_read_validation
-                << " (" << n_abort_no_retry << "/" << n_abort_lock << "/"
-                << n_abort_read_validation
-                << "), network size: " << n_network_size
-                << ", avg network size: " << 1.0 * n_network_size / n_commit
-                << ", si_in_serializable: " << n_si_in_serializable << " "
-                << 100.0 * n_si_in_serializable / n_commit << " %"
-                << ", local: " << 100.0 * n_local / n_commit << " %";
+      // Batch sizing code, uncomment when you want to use it
+      
+      //   // Adaptive batch sizing
+      //   double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
+      //                       (n_commit + 1);  // avoid divide-by-zero
+
+      //   if (abort_rate > 0.25 && adaptive_batch_size > 100) {
+      //       adaptive_batch_size /= 2;
+      //       LOG(INFO) << "High abort rate (" << abort_rate
+      //                 << "). Shrinking batch size to " << adaptive_batch_size;
+      //   } else if (abort_rate < 0.05 && adaptive_batch_size < 4000) {
+      //       adaptive_batch_size *= 2;
+      //       LOG(INFO) << "Low abort rate (" << abort_rate
+      //                 << "). Increasing batch size to " << adaptive_batch_size;
+      //   }
+
+
+      //   // LOG(INFO) << "commit: " << n_commit << " abort: "
+      //   //           << n_abort_no_retry + n_abort_lock + n_abort_read_validation
+      //   //           << " (" << n_abort_no_retry << "/" << n_abort_lock << "/"
+      //   //           << n_abort_read_validation
+      //   //           << "), network size: " << n_network_size
+      //   //           << ", avg network size: " << 1.0 * n_network_size / n_commit
+      //   //           << ", si_in_serializable: " << n_si_in_serializable << " "
+      //   //           << 100.0 * n_si_in_serializable / n_commit << " %"
+      //   //           << ", local: " << 100.0 * n_local / n_commit << " %";
+
+      
+      // Log only the abort rate and commit rate
+
+
+      // LOG(INFO) << "commit: " << n_commit << " abort: "
+      //           << n_abort_no_retry + n_abort_lock + n_abort_read_validation
+      //           << " (" << n_abort_no_retry << "/" << n_abort_lock << "/"
+      //           << n_abort_read_validation
+      //           << "), network size: " << n_network_size
+      //           << ", avg network size: " << 1.0 * n_network_size / n_commit
+      //           << ", si_in_serializable: " << n_si_in_serializable << " "
+      //           << 100.0 * n_si_in_serializable / n_commit << " %"
+      //           << ", local: " << 100.0 * n_local / n_commit << " %";
       count++;
       if (count > warmup && count <= timeToRun - cooldown) {
         total_commit += n_commit;
@@ -175,20 +209,29 @@ public:
 
     count = timeToRun - warmup - cooldown;
 
-    LOG(INFO) << "average commit: " << 1.0 * total_commit / count << " abort: "
-              << 1.0 *
-                     (total_abort_no_retry + total_abort_lock +
-                      total_abort_read_validation) /
-                     count
-              << " (" << 1.0 * total_abort_no_retry / count << "/"
-              << 1.0 * total_abort_lock / count << "/"
-              << 1.0 * total_abort_read_validation / count
-              << "), network size: " << total_network_size
-              << ", avg network size: "
-              << 1.0 * total_network_size / total_commit
-              << ", si_in_serializable: " << total_si_in_serializable << " "
-              << 100.0 * total_si_in_serializable / total_commit << " %"
-              << ", local: " << 100.0 * total_local / total_commit << " %";
+    LOG(INFO) << "Final Statistics:";
+    LOG(INFO) << "Delay Percentage: " << context.barrierDelayedPercent;
+    LOG(INFO) << "Delay Time: " << context.barrierArtificialDelayMs;
+    LOG(INFO) << "Average Commits: " << 1.0 * total_commit / count; 
+    LOG(INFO) << "Average Abort Rate: "
+              << 1.0 * (total_abort_no_retry + total_abort_lock + total_abort_read_validation) /
+                    (total_commit + 1);
+    LOG(INFO) << "Overall Throughput: " << 1.0 * total_commit / timeToRun << " tx/sec";
+
+    // LOG(INFO) << "average commit: " << 1.0 * total_commit / count << " abort: "
+    //           << 1.0 *
+    //                  (total_abort_no_retry + total_abort_lock +
+    //                   total_abort_read_validation) /
+    //                  count
+    //           << " (" << 1.0 * total_abort_no_retry / count << "/"
+    //           << 1.0 * total_abort_lock / count << "/"
+    //           << 1.0 * total_abort_read_validation / count
+    //           << "), network size: " << total_network_size
+    //           << ", avg network size: "
+    //           << 1.0 * total_network_size / total_commit
+    //           << ", si_in_serializable: " << total_si_in_serializable << " "
+    //           << 100.0 * total_si_in_serializable / total_commit << " %"
+    //           << ", local: " << 100.0 * total_local / total_commit << " %";
 
     workerStopFlag.store(true);
 

@@ -24,6 +24,11 @@ public:
   }
 
 public:
+
+  // ARTIFICIAL DELAY
+  int barrierDelayedPercent = 0;    // Percentage of transactions to delay
+  int barrierArtificialDelayMs = 0; // Artificial delay in milliseconds
+
   std::size_t coordinator_id = 0;
   std::size_t partition_num = 0;
   std::size_t worker_num = 0;

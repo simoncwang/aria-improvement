@@ -136,6 +136,7 @@ public:
     auto cur_epoch = epoch.load();
     auto n_abort = total_abort.load();
     std::size_t count = 0;
+    std::size_t delayed_count = 0; // Counter for delayed transactions
     for (auto i = id; i < transactions.size(); i += context.worker_num) {
 
       process_request();
@@ -165,10 +166,15 @@ public:
       count++;
 
       // Coordination delays (commented out for now because it is a separate experiment, but bring it back when you want to use it?)
-      // if ((rand() % 1000) < context.barrierDelayedPercent) {
-      //   std::this_thread::sleep_for(
-      //       std::chrono::microseconds(context.barrierArtificialDelayMs));
-      // }
+
+      if ((rand() % 1000) < context.barrierDelayedPercent) {
+        delayed_count++; // Increment the delayed transaction counter
+
+        // CONVERT TO MICROSECONDS
+        int delay_per_transaction_us = (context.barrierArtificialDelayMs * 1000) / context.barrierDelayedPercent;
+
+        std::this_thread::sleep_for(std::chrono::microseconds(delay_per_transaction_us));
+      }
 
       // run transactions
       // this line below is normally here!
@@ -209,8 +215,22 @@ public:
       if (count % context.batch_flush == 0) {
         flush_messages();
       }
+
+      // LOG(INFO) << "COUNT:" << count << " delayed_count:" << delayed_count;
+    
+      // Log the delayed count at the end of every 1000 transactions
+      if (count == 1000) {
+          // int delay_per_transaction_us = (context.barrierArtificialDelayMs * 1000) / context.barrierDelayedPercent;
+          // LOG(INFO) << "Batch of 1000 transactions completed. "
+          //           << delayed_count << " transactions were artificially delayed."
+          //           << "Total delay:" << delay_per_transaction_us*delayed_count << " us.";
+          //           ;
+          delayed_count = 0; // Reset the counter for the next batch
+      }
+  
     }
     flush_messages();
+   
 
     // reserve
     count = 0;

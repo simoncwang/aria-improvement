@@ -33,8 +33,10 @@ def print_ycsb():
   zipf = 0.0
   keys = 40000
   cross_ratio = 100
-  barrier_delayed_percents = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000] # out of 1K
-  barrier_artificial_delay_mss = [1000000, 500000, 200000, 100000, 50000, 20000, 10000] # ms
+  barrier_delayed_percents = [1, 2, 5, 10]
+  barrier_artificial_delay_mss = [20]
+  # barrier_delayed_percents = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000] # out of 1K
+  # barrier_artificial_delay_mss = [1000000, 500000, 200000, 100000, 50000, 20000, 10000] # ms
 
   # kiva
   for barrier_delayed_percent in barrier_delayed_percents:

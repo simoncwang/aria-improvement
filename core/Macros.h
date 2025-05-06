@@ -77,6 +77,8 @@ DEFINE_int32(ariaFB_lock_manager, 0,
   context.aria_reordering_optmization = FLAGS_aria_reordering;                 \
   context.aria_snapshot_isolation = FLAGS_aria_si;                             \
   context.delay_time = FLAGS_delay;                                            \
+  context.barrierDelayedPercent = FLAGS_barrier_delayed_percent;              \
+  context.barrierArtificialDelayMs = FLAGS_barrier_artificial_delay_ms;      \
   context.log_path = FLAGS_log_path;                                           \
   context.cdf_path = FLAGS_cdf_path;                                           \
   context.tcp_no_delay = FLAGS_tcp_no_delay;                                   \

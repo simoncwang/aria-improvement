@@ -14,7 +14,7 @@ DEFINE_bool(global_key_space, false, "ycsb global key space.");
 
 
 // —— Add these two —— 
-DEFINE_int32(barrier_delayed_percent,    0,    "percent (out of 1000) of partitions to delay at the barrier");
+DEFINE_int32(barrier_delayed_percent,    0,    "percent of partitions to delay at the barrier");
 DEFINE_int32(barrier_artificial_delay_ms,0,    "how many ms each delayed partition should sleep before entering barrier");
 
 
@@ -44,6 +44,10 @@ int main(int argc, char *argv[]) {
   context.two_partitions = FLAGS_two_partitions;
   context.pwv_ycsb_star = FLAGS_pwv_ycsb_star;
   context.global_key_space = FLAGS_global_key_space;
+
+  // Pass the barrier delay flags into the context
+  context.barrierDelayedPercent = FLAGS_barrier_delayed_percent;
+  context.barrierArtificialDelayMs = FLAGS_barrier_artificial_delay_ms;
 
   if (FLAGS_zipf > 0) {
     context.isUniform = false;
