@@ -137,6 +137,10 @@ public:
     return writeSet.size() - 1;
   }
 
+  std::size_t estimate_size() const {
+    return readSet.size() + writeSet.size() * 2;
+  }
+
   void set_id(std::size_t id) { this->id = id; }
 
   void set_tid_offset(std::size_t offset) { this->tid_offset = offset; }

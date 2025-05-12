@@ -136,6 +136,9 @@ public:
     auto cur_epoch = epoch.load();
     auto n_abort = total_abort.load();
     std::size_t count = 0;
+    short_transactions.clear();
+    long_transactions.clear();
+
     for (auto i = id; i < transactions.size(); i += context.worker_num) {
 
       process_request();
@@ -190,20 +193,25 @@ public:
       //   continue;  // skip reservation; defer this txn to next batch
       // }
 
-
-
+      // Dynamic batching //TODO: tune number
+      if (transactions[i]->estimate_size() <= 15) {
+        short_transactions.push_back(i);
+      } else {
+        long_transactions.push_back(i);
+      }
+      
       n_network_size.fetch_add(transactions[i]->network_size);
       if (result == TransactionResult::ABORT_NORETRY) {
         transactions[i]->abort_no_retry = true;
       } 
       
-      // else if (result == TransactionResult::ABORT) {
-      //           // ─── RANDOM BACKOFF ───
-      //           // sleep 0–49 microseconds before retrying to reduce conflicts
-      //           int backoff_us = rand() % 50;
-      //           std::this_thread::sleep_for(
-      //               std::chrono::microseconds(backoff_us));
-      // }
+      else if (result == TransactionResult::ABORT) {
+                // ─── RANDOM BACKOFF ───
+                // sleep 0–49 microseconds before retrying to reduce conflicts
+                int backoff_us = rand() % 50;
+                std::this_thread::sleep_for(
+                    std::chrono::microseconds(backoff_us));
+      }
 
 
       if (count % context.batch_flush == 0) {
@@ -212,9 +220,39 @@ public:
     }
     flush_messages();
 
+    // std::cout << "short transactions: " << short_transactions.size() << std::endl;
+    // std::cout << "long transactions: " << long_transactions.size() << std::endl;
     // reserve
+    // Process short transactions
     count = 0;
-    for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    for (auto i : short_transactions) {
+
+      if (transactions[i]->abort_no_retry) {
+        continue;
+      }
+
+      count++;
+
+      // wait till all reads are processed
+      while (transactions[i]->pendingResponses > 0) {
+        process_request();
+      }
+
+      transactions[i]->execution_phase = true;
+      // fill in writes in write set
+      transactions[i]->execute(id);
+
+      // start reservation
+      reserve_transaction(*transactions[i]);
+      if (count % context.batch_flush == 0) {
+        flush_messages();
+      }
+    }
+    flush_messages();
+
+    // Process long transactions  
+    count = 0;
+    for (auto i : long_transactions) {
 
       if (transactions[i]->abort_no_retry) {
         continue;
@@ -239,6 +277,34 @@ public:
     }
     flush_messages();
   }
+
+    
+  //   count = 0;
+  //   for (auto i = id; i < transactions.size(); i += context.worker_num) {
+
+  //     if (transactions[i]->abort_no_retry) {
+  //       continue;
+  //     }
+
+  //     count++;
+
+  //     // wait till all reads are processed
+  //     while (transactions[i]->pendingResponses > 0) {
+  //       process_request();
+  //     }
+
+  //     transactions[i]->execution_phase = true;
+  //     // fill in writes in write set
+  //     transactions[i]->execute(id);
+
+  //     // start reservation
+  //     reserve_transaction(*transactions[i]);
+  //     if (count % context.batch_flush == 0) {
+  //       flush_messages();
+  //     }
+  //   }
+  //   flush_messages();
+  // }
 
   void reserve_transaction(TransactionType &txn) {
 
@@ -362,7 +428,8 @@ public:
 
   void commit_transactions() {
     std::size_t count = 0;
-    for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    // for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    for (auto i : short_transactions) {  
       if (transactions[i]->abort_no_retry) {
         continue;
       }
@@ -377,7 +444,99 @@ public:
     flush_messages();
 
     count = 0;
-    for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    for (auto i : long_transactions) {  
+      if (transactions[i]->abort_no_retry) {
+        continue;
+      }
+
+      count++;
+
+      analyze_dependency(*transactions[i]);
+      if (count % context.batch_flush == 0) {
+        flush_messages();
+      }
+    }
+    flush_messages();
+
+    count = 0;
+    // for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    for (auto i : short_transactions) {  
+      if (transactions[i]->abort_no_retry) {
+        n_abort_no_retry.fetch_add(1);
+        continue;
+      }
+      count++;
+
+      // wait till all checks are processed
+      while (transactions[i]->pendingResponses > 0) {
+        process_request();
+      }
+
+      if (context.aria_read_only_optmization &&
+          transactions[i]->is_read_only()) {
+        n_commit.fetch_add(1);
+        auto latency =
+            std::chrono::duration_cast<std::chrono::microseconds>(
+                std::chrono::steady_clock::now() - transactions[i]->startTime)
+                .count();
+        percentile.add(latency);
+        continue;
+      }
+
+      if (transactions[i]->waw) {
+        protocol.abort(*transactions[i], messages);
+        n_abort_lock.fetch_add(1);
+        continue;
+      }
+
+      if (context.aria_snapshot_isolation) {
+        protocol.commit(*transactions[i], messages);
+        n_commit.fetch_add(1);
+        auto latency =
+            std::chrono::duration_cast<std::chrono::microseconds>(
+                std::chrono::steady_clock::now() - transactions[i]->startTime)
+                .count();
+        percentile.add(latency);
+      } else {
+        if (context.aria_reordering_optmization) {
+          if (transactions[i]->war == false || transactions[i]->raw == false) {
+            protocol.commit(*transactions[i], messages);
+            n_commit.fetch_add(1);
+            auto latency =
+                std::chrono::duration_cast<std::chrono::microseconds>(
+                    std::chrono::steady_clock::now() -
+                    transactions[i]->startTime)
+                    .count();
+            percentile.add(latency);
+          } else {
+            n_abort_lock.fetch_add(1);
+            protocol.abort(*transactions[i], messages);
+          }
+        } else {
+          if (transactions[i]->raw) {
+            n_abort_lock.fetch_add(1);
+            protocol.abort(*transactions[i], messages);
+          } else {
+            protocol.commit(*transactions[i], messages);
+            n_commit.fetch_add(1);
+            auto latency =
+                std::chrono::duration_cast<std::chrono::microseconds>(
+                    std::chrono::steady_clock::now() -
+                    transactions[i]->startTime)
+                    .count();
+            percentile.add(latency);
+          }
+        }
+      }
+
+      if (count % context.batch_flush == 0) {
+        flush_messages();
+      }
+    }
+    flush_messages();
+
+    count = 0;
+    for (auto i : long_transactions) {  
       if (transactions[i]->abort_no_retry) {
         n_abort_no_retry.fetch_add(1);
         continue;
@@ -591,5 +750,7 @@ private:
                          std::vector<std::unique_ptr<TransactionType>> &)>>
       messageHandlers;
   LockfreeQueue<Message *> in_queue, out_queue;
+  std::vector<std::size_t> short_transactions;
+  std::vector<std::size_t> long_transactions;
 };
 } // namespace aria
