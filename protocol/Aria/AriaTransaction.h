@@ -138,7 +138,11 @@ public:
   }
 
   std::size_t estimate_size() const {
-    return readSet.size() + writeSet.size() * 2;
+    if (partition_id == coordinator_id) {
+      return 10;
+    }
+    return 20;
+    //return readSet.size() + writeSet.size() * 2;
   }
 
   void set_id(std::size_t id) { this->id = id; }
