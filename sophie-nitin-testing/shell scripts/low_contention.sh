@@ -1,0 +1,10 @@
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10000" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10001" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10002" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10003" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10004" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10000" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10001" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10002" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10003" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
+./bench_ycsb --logtostderr=1 --id=0 --servers="127.0.0.1:10004" --protocol=Aria --partition_num=4 --threads=4 --batch_size=2500 --read_write_ratio=80 --cross_ratio=70 --keys=40000 --zipf=0.1 
