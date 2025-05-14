@@ -41,6 +41,8 @@ public:
 
   TransactionResult execute(std::size_t worker_id) override {
 
+    auto start_time = std::chrono::steady_clock::now();
+
     DCHECK(context.keysPerTransaction == keys_num);
 
     int ycsbTableID = ycsb::tableID;
@@ -91,8 +93,16 @@ public:
 
         this->update(ycsbTableID, context.getPartitionID(key),
                      storage.ycsb_keys[i], storage.ycsb_values[i]);
+
+        LOG(INFO) << "coordinator: " << this->coordinator_id  << " partition: " << context.getPartitionID(key);
       }
     }
+
+    auto end_time = std::chrono::steady_clock::now();
+    auto exec_time_us = std::chrono::duration_cast<std::chrono::microseconds>(
+        end_time - start_time).count();
+
+    LOG(INFO) << "YCSB execution time: " << exec_time_us << " us";
 
     return TransactionResult::READY_TO_COMMIT;
   }

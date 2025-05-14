@@ -289,6 +289,8 @@ public:
 
   TransactionResult execute(std::size_t worker_id) override {
 
+    auto start_time = std::chrono::steady_clock::now();
+
     int32_t W_ID = this->partition_id + 1;
 
     // The input data (see Clause 2.5.3.2) are communicated to the SUT.
@@ -433,6 +435,12 @@ public:
       storage.h_value.H_AMOUNT = H_AMOUNT;
       storage.h_value.H_DATA.assign(H_DATA, written);
     }
+
+    auto end_time = std::chrono::steady_clock::now();
+    auto exec_time_us = std::chrono::duration_cast<std::chrono::microseconds>(
+        end_time - start_time).count();
+
+    LOG(INFO) << "NewOrder execution time: " << exec_time_us << " us";
     return TransactionResult::READY_TO_COMMIT;
   }
 

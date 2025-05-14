@@ -138,6 +138,8 @@ public:
   }
 
   std::size_t estimate_size() const {
+    LOG(INFO) << "EST size: " << readSet.size() + writeSet.size() * 2;
+    LOG(INFO) << "writeSet size: " << writeSet.size();
     return readSet.size() + writeSet.size() * 2;
   }
 
