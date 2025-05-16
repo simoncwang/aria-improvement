@@ -193,7 +193,7 @@ public:
       //   continue;  // skip reservation; defer this txn to next batch
       // }
 
-      // Dynamic batching //TODO: tune number
+      // Dynamic batching 
       if (transactions[i]->estimate_size() <= 15) {
         short_transactions.push_back(i);
       } else {

@@ -138,11 +138,14 @@ public:
   }
 
   std::size_t estimate_size() const {
-    if (partition_id == coordinator_id) {
-      return 10;
-    }
-    return 20;
-    //return readSet.size() + writeSet.size() * 2;
+    // Batch based on coordinator and partion id
+    // if (partition_id == coordinator_id) {
+    //   return 10;
+    // }
+    // return 20;
+
+    // Batch using readSet and writeSet 
+    return readSet.size() + writeSet.size() * 2;
   }
 
   void set_id(std::size_t id) { this->id = id; }
