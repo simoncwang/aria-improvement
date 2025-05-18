@@ -1,0 +1,450 @@
+I0518 01:25:11.591921  9745 Database.h:65] ycsb initialization finished in 24 milliseconds.
+I0518 01:25:11.592046  9745 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:25:11.594234  9745 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:25:11.594353  9752 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:25:11.594372  9753 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:25:11.594492  9754 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:25:11.594630  9756 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:25:11.597730  9755 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:25:12.599220  9745 Coordinator.h:152] commit: 26129 abort: 11371 (0/11371/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:13.599362  9745 Coordinator.h:152] commit: 25668 abort: 11207 (0/11207/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:14.599535  9745 Coordinator.h:152] commit: 24815 abort: 10810 (0/10810/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:15.599694  9745 Coordinator.h:152] commit: 40102 abort: 17398 (0/17398/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:16.599848  9745 Coordinator.h:152] commit: 33191 abort: 14309 (0/14309/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:17.600253  9745 Coordinator.h:152] commit: 24261 abort: 10739 (0/10739/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:18.600361  9745 Coordinator.h:152] commit: 46947 abort: 20553 (0/20553/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:19.600793  9745 Coordinator.h:152] commit: 17316 abort: 7684 (0/7684/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:20.601169  9745 Coordinator.h:152] commit: 22603 abort: 9897 (0/9897/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:21.602386  9745 Coordinator.h:152] commit: 31238 abort: 13762 (0/13762/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:22.602787  9745 Coordinator.h:152] commit: 34784 abort: 15216 (0/15216/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:23.603231  9745 Coordinator.h:152] commit: 22649 abort: 9851 (0/9851/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:24.603683  9745 Coordinator.h:152] commit: 17240 abort: 7760 (0/7760/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:25.604055  9745 Coordinator.h:152] commit: 22505 abort: 9995 (0/9995/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:26.604509  9745 Coordinator.h:152] commit: 20936 abort: 9064 (0/9064/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:27.604921  9745 Coordinator.h:152] commit: 26191 abort: 11309 (0/11309/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:28.637377  9745 Coordinator.h:152] commit: 24554 abort: 10446 (0/10446/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:29.638171  9745 Coordinator.h:152] commit: 34958 abort: 15042 (0/15042/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:30.640524  9745 Coordinator.h:152] commit: 31283 abort: 13717 (0/13717/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:31.640774  9745 Coordinator.h:152] commit: 34721 abort: 15279 (0/15279/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:32.644385  9745 Coordinator.h:152] commit: 34735 abort: 15265 (0/15265/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:33.644511  9745 Coordinator.h:152] commit: 31321 abort: 13679 (0/13679/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:34.644688  9745 Coordinator.h:152] commit: 31439 abort: 13561 (0/13561/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:35.644851  9745 Coordinator.h:152] commit: 17292 abort: 7708 (0/7708/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:36.645288  9745 Coordinator.h:152] commit: 33150 abort: 14350 (0/14350/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:36.645670  9745 Coordinator.h:178] average commit: 26982.1 abort: 11767.9 (0/11767.9/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:36.664362  9756 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:25:36.664376  9755 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:25:36.664376  9753 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:25:36.664397  9752 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:25:36.664376  9754 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:25:36.645874  9745 AriaExecutor.h:654] Worker 0 latency: 13931 us (50%) 31445 us (75%) 82544 us (95%) 127092 us (99%).
+I0518 01:25:36.666194  9745 AriaExecutor.h:654] Worker 1 latency: 14016 us (50%) 31009 us (75%) 90240 us (95%) 129976 us (99%).
+I0518 01:25:36.671655  9745 AriaExecutor.h:654] Worker 2 latency: 13813 us (50%) 29431 us (75%) 93818 us (95%) 133924 us (99%).
+I0518 01:25:36.677474  9745 AriaExecutor.h:654] Worker 3 latency: 13966 us (50%) 31582 us (75%) 94309 us (95%) 134055 us (99%).
+I0518 01:25:36.683041  9745 Coordinator.h:203] total commit: 26982.1
+I0518 01:25:37.683238  9745 Coordinator.h:218] Coordinator exits.
+I0518 01:25:37.716689  9968 Database.h:65] ycsb initialization finished in 22 milliseconds.
+I0518 01:25:37.716804  9968 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:25:37.719017  9968 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:25:37.719100  9975 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:25:37.719121  9976 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:25:37.719228  9977 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:25:37.719399  9978 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:25:37.722750  9979 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:25:38.721356  9968 Coordinator.h:152] commit: 34997 abort: 15003 (0/15003/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:39.721514  9968 Coordinator.h:152] commit: 19168 abort: 8332 (0/8332/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:40.721936  9968 Coordinator.h:152] commit: 31378 abort: 13622 (0/13622/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:41.725369  9968 Coordinator.h:152] commit: 27876 abort: 12124 (0/12124/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:42.725530  9968 Coordinator.h:152] commit: 24346 abort: 10654 (0/10654/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:43.729359  9968 Coordinator.h:152] commit: 22773 abort: 9727 (0/9727/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:44.729508  9968 Coordinator.h:152] commit: 20941 abort: 9059 (0/9059/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:45.729748  9968 Coordinator.h:152] commit: 27818 abort: 12182 (0/12182/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:46.730242  9968 Coordinator.h:152] commit: 22668 abort: 9832 (0/9832/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:47.730365  9968 Coordinator.h:152] commit: 24440 abort: 10560 (0/10560/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:48.730523  9968 Coordinator.h:152] commit: 26161 abort: 11339 (0/11339/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:49.730715  9968 Coordinator.h:152] commit: 32706 abort: 14169 (0/14169/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:50.731137  9968 Coordinator.h:152] commit: 24828 abort: 10797 (0/10797/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:51.731559  9968 Coordinator.h:152] commit: 18679 abort: 8196 (0/8196/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:52.740887  9968 Coordinator.h:152] commit: 29974 abort: 13151 (0/13151/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:53.741046  9968 Coordinator.h:152] commit: 24340 abort: 10660 (0/10660/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:54.741194  9968 Coordinator.h:152] commit: 24354 abort: 10646 (0/10646/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:55.741600  9968 Coordinator.h:152] commit: 31258 abort: 13742 (0/13742/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:56.741995  9968 Coordinator.h:152] commit: 41724 abort: 18276 (0/18276/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:57.742363  9968 Coordinator.h:152] commit: 26090 abort: 11410 (0/11410/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:58.742537  9968 Coordinator.h:152] commit: 31466 abort: 13534 (0/13534/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:25:59.742950  9968 Coordinator.h:152] commit: 32958 abort: 14542 (0/14542/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:00.744011  9968 Coordinator.h:152] commit: 31224 abort: 13776 (0/13776/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:01.744169  9968 Coordinator.h:152] commit: 25675 abort: 11200 (0/11200/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:02.797361  9968 Coordinator.h:152] commit: 19602 abort: 8523 (0/8523/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:02.797425  9968 Coordinator.h:178] average commit: 28011.4 abort: 12238.6 (0/12238.6/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:02.797444  9968 AriaExecutor.h:654] Worker 0 latency: 14501 us (50%) 31123 us (75%) 95447 us (95%) 135763 us (99%).
+I0518 01:26:02.837088  9979 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:26:02.837100  9978 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:26:02.837100  9975 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:26:02.837234  9976 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:26:02.837102  9977 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:26:02.837252  9968 AriaExecutor.h:654] Worker 1 latency: 14481 us (50%) 28550 us (75%) 96592 us (95%) 150223 us (99%).
+I0518 01:26:02.842769  9968 AriaExecutor.h:654] Worker 2 latency: 14631 us (50%) 28815 us (75%) 85819 us (95%) 121276 us (99%).
+I0518 01:26:02.848030  9968 AriaExecutor.h:654] Worker 3 latency: 14756 us (50%) 29784 us (75%) 96902 us (95%) 135372 us (99%).
+I0518 01:26:02.853504  9968 Coordinator.h:203] total commit: 28011.4
+I0518 01:26:03.853684  9968 Coordinator.h:218] Coordinator exits.
+I0518 01:26:03.898648 10172 Database.h:65] ycsb initialization finished in 34 milliseconds.
+I0518 01:26:03.898753 10172 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:26:03.901010 10172 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:26:03.901162 10182 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:26:03.901208 10183 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:26:03.901252 10184 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:26:03.903405 10185 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:26:03.906749 10186 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:26:04.912369 10172 Coordinator.h:152] commit: 41933 abort: 18067 (0/18067/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:05.912500 10172 Coordinator.h:152] commit: 22776 abort: 9724 (0/9724/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:06.912649 10172 Coordinator.h:152] commit: 19258 abort: 8242 (0/8242/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:07.912799 10172 Coordinator.h:152] commit: 22391 abort: 10109 (0/10109/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:08.913190 10172 Coordinator.h:152] commit: 27751 abort: 12249 (0/12249/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:09.913352 10172 Coordinator.h:152] commit: 38318 abort: 16682 (0/16682/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:10.913498 10172 Coordinator.h:152] commit: 31239 abort: 13761 (0/13761/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:11.924593 10172 Coordinator.h:152] commit: 22081 abort: 9794 (0/9794/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:12.924965 10172 Coordinator.h:152] commit: 17815 abort: 7810 (0/7810/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:13.925119 10172 Coordinator.h:152] commit: 36089 abort: 15786 (0/15786/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:14.925266 10172 Coordinator.h:152] commit: 29994 abort: 13131 (0/13131/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:15.925433 10172 Coordinator.h:152] commit: 29570 abort: 12930 (0/12930/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:16.925864 10172 Coordinator.h:152] commit: 38469 abort: 16531 (0/16531/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:17.926266 10172 Coordinator.h:152] commit: 27878 abort: 12122 (0/12122/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:18.926699 10172 Coordinator.h:152] commit: 47256 abort: 20244 (0/20244/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:19.927102 10172 Coordinator.h:152] commit: 33109 abort: 14391 (0/14391/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:20.927495 10172 Coordinator.h:152] commit: 27696 abort: 12304 (0/12304/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:21.964437 10172 Coordinator.h:152] commit: 11842 abort: 5033 (0/5033/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:22.964565 10172 Coordinator.h:152] commit: 26525 abort: 11600 (0/11600/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:23.964730 10172 Coordinator.h:152] commit: 17250 abort: 7750 (0/7750/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:24.965126 10172 Coordinator.h:152] commit: 36636 abort: 15864 (0/15864/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:25.965564 10172 Coordinator.h:152] commit: 27867 abort: 12133 (0/12133/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:26.965698 10172 Coordinator.h:152] commit: 33153 abort: 14347 (0/14347/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:27.966890 10172 Coordinator.h:152] commit: 24246 abort: 10754 (0/10754/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:28.967558 10172 Coordinator.h:152] commit: 29374 abort: 13126 (0/13126/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:28.967649 10172 Coordinator.h:178] average commit: 28958.9 abort: 12603.6 (0/12603.6/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:28.967974 10172 AriaExecutor.h:654] Worker 0 latency: 13893 us (50%) 27213 us (75%) 87518 us (95%) 154720 us (99%).
+I0518 01:26:29.242743 10185 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:26:29.242743 10184 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:26:29.242735 10183 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:26:29.242735 10186 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:26:29.242744 10182 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:26:29.243168 10172 AriaExecutor.h:654] Worker 1 latency: 14003 us (50%) 26050 us (75%) 89902 us (95%) 153499 us (99%).
+I0518 01:26:29.248793 10172 AriaExecutor.h:654] Worker 2 latency: 13825 us (50%) 28459 us (75%) 100659 us (95%) 155148 us (99%).
+I0518 01:26:29.254506 10172 AriaExecutor.h:654] Worker 3 latency: 13898 us (50%) 26672 us (75%) 87408 us (95%) 141036 us (99%).
+I0518 01:26:29.260216 10172 Coordinator.h:203] total commit: 28958.9
+I0518 01:26:30.260434 10172 Coordinator.h:218] Coordinator exits.
+I0518 01:26:30.293213 10388 Database.h:65] ycsb initialization finished in 23 milliseconds.
+I0518 01:26:30.293350 10388 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:26:30.295569 10388 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:26:30.295668 10395 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:26:30.295686 10396 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:26:30.295794 10397 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:26:30.295951 10398 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:26:30.298748 10399 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:26:31.300726 10388 Coordinator.h:152] commit: 26129 abort: 11371 (0/11371/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:32.300856 10388 Coordinator.h:152] commit: 27723 abort: 12277 (0/12277/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:33.301002 10388 Coordinator.h:152] commit: 36725 abort: 15775 (0/15775/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:34.301147 10388 Coordinator.h:152] commit: 31401 abort: 13599 (0/13599/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:35.301571 10388 Coordinator.h:152] commit: 26104 abort: 11396 (0/11396/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:36.304672 10388 Coordinator.h:152] commit: 24277 abort: 10723 (0/10723/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:37.305066 10388 Coordinator.h:152] commit: 43490 abort: 19010 (0/19010/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:38.305510 10388 Coordinator.h:152] commit: 36589 abort: 15911 (0/15911/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:39.331663 10388 Coordinator.h:152] commit: 21001 abort: 8999 (0/8999/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:40.331805 10388 Coordinator.h:152] commit: 33031 abort: 14469 (0/14469/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:41.346385 10388 Coordinator.h:152] commit: 24334 abort: 10666 (0/10666/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:42.346534 10388 Coordinator.h:152] commit: 29587 abort: 12913 (0/12913/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:43.346688 10388 Coordinator.h:152] commit: 36666 abort: 15834 (0/15834/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:44.346853 10388 Coordinator.h:152] commit: 22161 abort: 9714 (0/9714/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:45.347257 10388 Coordinator.h:152] commit: 27859 abort: 12141 (0/12141/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:46.347715 10388 Coordinator.h:152] commit: 26574 abort: 11551 (0/11551/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:47.347833 10388 Coordinator.h:152] commit: 20911 abort: 9089 (0/9089/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:48.348208 10388 Coordinator.h:152] commit: 26110 abort: 11390 (0/11390/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:49.348654 10388 Coordinator.h:152] commit: 34806 abort: 15194 (0/15194/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:50.349366 10388 Coordinator.h:152] commit: 30983 abort: 13392 (0/13392/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:51.354370 10388 Coordinator.h:152] commit: 44037 abort: 19088 (0/19088/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:52.354496 10388 Coordinator.h:152] commit: 15707 abort: 6793 (0/6793/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:53.354617 10388 Coordinator.h:152] commit: 24420 abort: 10580 (0/10580/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:54.355007 10388 Coordinator.h:152] commit: 22687 abort: 9813 (0/9813/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:55.355463 10388 Coordinator.h:152] commit: 24324 abort: 10676 (0/10676/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:55.355535 10388 Coordinator.h:178] average commit: 27999.1 abort: 12188.4 (0/12188.4/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:55.355831 10388 AriaExecutor.h:654] Worker 0 latency: 14210 us (50%) 32404 us (75%) 89166 us (95%) 121842 us (99%).
+I0518 01:26:55.408349 10399 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:26:55.408361 10397 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:26:55.408363 10398 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:26:55.408365 10396 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:26:55.408391 10395 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:26:55.408574 10388 AriaExecutor.h:654] Worker 1 latency: 14015 us (50%) 29180 us (75%) 81980 us (95%) 122489 us (99%).
+I0518 01:26:55.414186 10388 AriaExecutor.h:654] Worker 2 latency: 13984 us (50%) 32356 us (75%) 82250 us (95%) 113065 us (99%).
+I0518 01:26:55.419839 10388 AriaExecutor.h:654] Worker 3 latency: 14251 us (50%) 32056 us (75%) 90743 us (95%) 135829 us (99%).
+I0518 01:26:55.425417 10388 Coordinator.h:203] total commit: 27999.1
+I0518 01:26:56.425550 10388 Coordinator.h:218] Coordinator exits.
+I0518 01:26:56.465121 10573 Database.h:65] ycsb initialization finished in 28 milliseconds.
+I0518 01:26:56.465243 10573 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:26:56.467412 10573 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:26:56.467507 10580 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:26:56.467525 10581 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:26:56.467643 10582 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:26:56.467795 10583 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:26:56.470739 10584 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:26:57.471374 10573 Coordinator.h:152] commit: 29586 abort: 12914 (0/12914/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:58.471515 10573 Coordinator.h:152] commit: 24064 abort: 10311 (0/10311/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:26:59.471654 10573 Coordinator.h:152] commit: 19725 abort: 8400 (0/8400/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:00.471907 10573 Coordinator.h:152] commit: 40114 abort: 17386 (0/17386/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:01.472177 10573 Coordinator.h:152] commit: 48828 abort: 21172 (0/21172/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:02.472458 10573 Coordinator.h:152] commit: 29555 abort: 12945 (0/12945/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:03.472708 10573 Coordinator.h:152] commit: 36301 abort: 15574 (0/15574/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:04.472954 10573 Coordinator.h:152] commit: 29982 abort: 13143 (0/13143/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:05.504120 10573 Coordinator.h:152] commit: 22700 abort: 9800 (0/9800/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:06.504280 10573 Coordinator.h:152] commit: 29580 abort: 12920 (0/12920/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:07.504451 10573 Coordinator.h:152] commit: 29551 abort: 12949 (0/12949/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:08.504635 10573 Coordinator.h:152] commit: 24225 abort: 10775 (0/10775/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:09.504812 10573 Coordinator.h:152] commit: 24383 abort: 10617 (0/10617/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:10.504992 10573 Coordinator.h:152] commit: 34899 abort: 15101 (0/15101/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:11.505147 10573 Coordinator.h:152] commit: 41585 abort: 18415 (0/18415/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:12.505306 10573 Coordinator.h:152] commit: 23973 abort: 10402 (0/10402/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:13.505493 10573 Coordinator.h:152] commit: 33559 abort: 14566 (0/14566/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:14.521369 10573 Coordinator.h:152] commit: 29552 abort: 12948 (0/12948/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:15.521538 10573 Coordinator.h:152] commit: 20832 abort: 9168 (0/9168/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:16.534495 10573 Coordinator.h:152] commit: 33169 abort: 14331 (0/14331/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:17.534672 10573 Coordinator.h:152] commit: 26051 abort: 11449 (0/11449/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:18.534842 10573 Coordinator.h:152] commit: 26099 abort: 11401 (0/11401/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:19.558828 10573 Coordinator.h:152] commit: 20863 abort: 9137 (0/9137/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:20.559013 10573 Coordinator.h:152] commit: 32885 abort: 14615 (0/14615/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:21.584219 10573 Coordinator.h:152] commit: 31374 abort: 13626 (0/13626/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:21.584314 10573 Coordinator.h:178] average commit: 29572.8 abort: 12927.2 (0/12927.2/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:21.584362 10573 AriaExecutor.h:654] Worker 0 latency: 14042 us (50%) 24128 us (75%) 81731 us (95%) 145576 us (99%).
+I0518 01:27:21.594348 10584 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:27:21.594354 10581 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:27:21.594355 10583 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:27:21.594355 10580 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:27:21.594375 10582 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:27:21.594586 10573 AriaExecutor.h:654] Worker 1 latency: 13832 us (50%) 25185 us (75%) 90945 us (95%) 165825 us (99%).
+I0518 01:27:21.600520 10573 AriaExecutor.h:654] Worker 2 latency: 14244 us (50%) 26917 us (75%) 88990 us (95%) 135276 us (99%).
+I0518 01:27:21.606441 10573 AriaExecutor.h:654] Worker 3 latency: 14411 us (50%) 26642 us (75%) 79568 us (95%) 161068 us (99%).
+I0518 01:27:21.612397 10573 Coordinator.h:203] total commit: 29572.8
+I0518 01:27:22.612548 10573 Coordinator.h:218] Coordinator exits.
+I0518 01:27:22.645839 10765 Database.h:65] ycsb initialization finished in 23 milliseconds.
+I0518 01:27:22.645960 10765 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:27:22.648202 10765 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:27:22.648294 10772 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:27:22.648311 10773 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:27:22.648444 10774 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:27:22.648587 10775 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:27:22.651922 10776 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:27:23.648610 10765 Coordinator.h:152] commit: 33095 abort: 14405 (0/14405/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:24.648998 10765 Coordinator.h:152] commit: 13942 abort: 6058 (0/6058/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:25.650094 10765 Coordinator.h:152] commit: 33079 abort: 14421 (0/14421/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:26.650346 10765 Coordinator.h:152] commit: 34749 abort: 15251 (0/15251/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:27.650628 10765 Coordinator.h:152] commit: 26197 abort: 11303 (0/11303/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:28.650902 10765 Coordinator.h:152] commit: 29601 abort: 12899 (0/12899/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:29.667742 10765 Coordinator.h:152] commit: 20905 abort: 9095 (0/9095/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:30.667912 10765 Coordinator.h:152] commit: 57477 abort: 25023 (0/25023/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:31.668085 10765 Coordinator.h:152] commit: 43542 abort: 18958 (0/18958/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:32.668258 10765 Coordinator.h:152] commit: 15612 abort: 6888 (0/6888/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:33.668700 10765 Coordinator.h:152] commit: 27946 abort: 12054 (0/12054/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:34.684300 10765 Coordinator.h:152] commit: 25924 abort: 11576 (0/11576/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:35.720363 10765 Coordinator.h:152] commit: 31177 abort: 13823 (0/13823/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:36.720538 10765 Coordinator.h:152] commit: 33060 abort: 14440 (0/14440/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:37.720695 10765 Coordinator.h:152] commit: 22707 abort: 9793 (0/9793/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:38.720857 10765 Coordinator.h:152] commit: 26095 abort: 11405 (0/11405/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:39.721311 10765 Coordinator.h:152] commit: 22573 abort: 9927 (0/9927/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:40.721740 10765 Coordinator.h:152] commit: 29163 abort: 12712 (0/12712/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:41.722149 10765 Coordinator.h:152] commit: 26242 abort: 11258 (0/11258/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:42.722543 10765 Coordinator.h:152] commit: 31326 abort: 13674 (0/13674/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:43.722950 10765 Coordinator.h:152] commit: 26766 abort: 11359 (0/11359/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:44.740051 10765 Coordinator.h:152] commit: 36668 abort: 15832 (0/15832/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:45.740200 10765 Coordinator.h:152] commit: 41835 abort: 18165 (0/18165/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:46.740365 10765 Coordinator.h:152] commit: 22805 abort: 9695 (0/9695/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:47.740510 10765 Coordinator.h:152] commit: 26096 abort: 11404 (0/11404/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:47.740841 10765 Coordinator.h:178] average commit: 27621.3 abort: 12066.2 (0/12066.2/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:47.740974 10765 AriaExecutor.h:654] Worker 0 latency: 13962 us (50%) 28159 us (75%) 91429 us (95%) 112009 us (99%).
+I0518 01:27:47.857355 10776 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:27:47.857367 10773 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:27:47.857365 10774 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:27:47.857365 10772 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:27:47.857384 10775 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:27:47.857666 10765 AriaExecutor.h:654] Worker 1 latency: 14112 us (50%) 26432 us (75%) 87579 us (95%) 141929 us (99%).
+I0518 01:27:47.863567 10765 AriaExecutor.h:654] Worker 2 latency: 13714 us (50%) 24564 us (75%) 82021 us (95%) 124725 us (99%).
+I0518 01:27:47.869655 10765 AriaExecutor.h:654] Worker 3 latency: 13861 us (50%) 23817 us (75%) 96363 us (95%) 143976 us (99%).
+I0518 01:27:47.876005 10765 Coordinator.h:203] total commit: 27621.3
+I0518 01:27:48.876200 10765 Coordinator.h:218] Coordinator exits.
+I0518 01:27:48.909209 10923 Database.h:65] ycsb initialization finished in 22 milliseconds.
+I0518 01:27:48.909324 10923 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:27:48.911588 10923 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:27:48.911689 10931 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:27:48.912400 10930 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:27:48.912607 10932 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:27:48.915354 10933 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:27:48.918762 10934 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:27:49.918366 10923 Coordinator.h:152] commit: 33263 abort: 14237 (0/14237/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:50.937372 10923 Coordinator.h:152] commit: 32888 abort: 13987 (0/13987/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:51.937539 10923 Coordinator.h:152] commit: 38449 abort: 16551 (0/16551/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:52.937666 10923 Coordinator.h:152] commit: 30045 abort: 13080 (0/13080/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:53.937855 10923 Coordinator.h:152] commit: 38103 abort: 16897 (0/16897/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:54.938184 10923 Coordinator.h:152] commit: 22636 abort: 9864 (0/9864/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:56.004369 10923 Coordinator.h:152] commit: 26267 abort: 11233 (0/11233/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:57.009369 10923 Coordinator.h:152] commit: 19068 abort: 8432 (0/8432/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:58.009521 10923 Coordinator.h:152] commit: 37803 abort: 16572 (0/16572/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:27:59.009698 10923 Coordinator.h:152] commit: 24833 abort: 10792 (0/10792/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:00.009876 10923 Coordinator.h:152] commit: 29457 abort: 13043 (0/13043/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:01.063374 10923 Coordinator.h:152] commit: 27708 abort: 12292 (0/12292/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:02.063540 10923 Coordinator.h:152] commit: 24439 abort: 10561 (0/10561/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:03.063668 10923 Coordinator.h:152] commit: 34340 abort: 15035 (0/15035/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:04.063848 10923 Coordinator.h:152] commit: 26189 abort: 11311 (0/11311/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:05.064025 10923 Coordinator.h:152] commit: 31707 abort: 13918 (0/13918/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:06.064196 10923 Coordinator.h:152] commit: 15636 abort: 6864 (0/6864/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:07.064373 10923 Coordinator.h:152] commit: 19241 abort: 8259 (0/8259/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:08.064495 10923 Coordinator.h:152] commit: 24341 abort: 10659 (0/10659/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:09.064669 10923 Coordinator.h:152] commit: 24372 abort: 10628 (0/10628/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:10.064857 10923 Coordinator.h:152] commit: 27786 abort: 12214 (0/12214/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:11.065279 10923 Coordinator.h:152] commit: 26099 abort: 11401 (0/11401/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:12.065454 10923 Coordinator.h:152] commit: 40250 abort: 17250 (0/17250/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:13.067474 10923 Coordinator.h:152] commit: 26140 abort: 11360 (0/11360/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:14.067595 10923 Coordinator.h:152] commit: 22474 abort: 10026 (0/10026/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:14.067651 10923 Coordinator.h:178] average commit: 25743 abort: 11257 (0/11257/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:14.067672 10923 AriaExecutor.h:654] Worker 0 latency: 14422 us (50%) 29139 us (75%) 98753 us (95%) 188084 us (99%).
+I0518 01:28:14.126348 10934 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:28:14.126351 10930 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:28:14.126361 10932 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:28:14.126370 10933 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:28:14.126384 10931 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:28:14.126734 10923 AriaExecutor.h:654] Worker 1 latency: 14223 us (50%) 34817 us (75%) 103863 us (95%) 161370 us (99%).
+I0518 01:28:14.132257 10923 AriaExecutor.h:654] Worker 2 latency: 14448 us (50%) 34896 us (75%) 104560 us (95%) 163761 us (99%).
+I0518 01:28:14.137810 10923 AriaExecutor.h:654] Worker 3 latency: 14292 us (50%) 28727 us (75%) 91394 us (95%) 188115 us (99%).
+I0518 01:28:14.143230 10923 Coordinator.h:203] total commit: 25743
+I0518 01:28:15.143446 10923 Coordinator.h:218] Coordinator exits.
+I0518 01:28:15.176923 11111 Database.h:65] ycsb initialization finished in 23 milliseconds.
+I0518 01:28:15.177042 11111 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:28:15.179214 11111 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:28:15.179311 11118 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:28:15.179330 11119 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:28:15.179456 11120 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:28:15.179605 11121 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:28:15.182740 11122 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:28:16.179594 11111 Coordinator.h:152] commit: 26048 abort: 11452 (0/11452/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:17.191383 11111 Coordinator.h:152] commit: 25761 abort: 11114 (0/11114/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:18.191507 11111 Coordinator.h:152] commit: 21426 abort: 9199 (0/9199/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:19.191644 11111 Coordinator.h:152] commit: 21007 abort: 8993 (0/8993/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:20.192103 11111 Coordinator.h:152] commit: 15267 abort: 6608 (0/6608/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:21.201241 11111 Coordinator.h:152] commit: 21239 abort: 9386 (0/9386/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:22.201376 11111 Coordinator.h:152] commit: 20943 abort: 9057 (0/9057/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:23.201514 11111 Coordinator.h:152] commit: 41659 abort: 18341 (0/18341/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:24.201694 11111 Coordinator.h:152] commit: 25811 abort: 11064 (0/11064/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:25.202136 11111 Coordinator.h:152] commit: 26594 abort: 11531 (0/11531/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:26.202291 11111 Coordinator.h:152] commit: 33086 abort: 14414 (0/14414/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:27.202702 11111 Coordinator.h:152] commit: 25574 abort: 11301 (0/11301/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:28.203142 11111 Coordinator.h:152] commit: 29941 abort: 13184 (0/13184/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:29.205358 11111 Coordinator.h:152] commit: 38347 abort: 16653 (0/16653/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:30.205504 11111 Coordinator.h:152] commit: 34420 abort: 14955 (0/14955/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:31.205667 11111 Coordinator.h:152] commit: 24711 abort: 10914 (0/10914/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:32.205829 11111 Coordinator.h:152] commit: 31246 abort: 13754 (0/13754/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:33.206257 11111 Coordinator.h:152] commit: 22670 abort: 9830 (0/9830/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:34.236378 11111 Coordinator.h:152] commit: 33089 abort: 14411 (0/14411/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:35.241812 11111 Coordinator.h:152] commit: 26001 abort: 11499 (0/11499/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:36.241951 11111 Coordinator.h:152] commit: 24292 abort: 10708 (0/10708/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:37.242079 11111 Coordinator.h:152] commit: 29303 abort: 12572 (0/12572/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:38.242223 11111 Coordinator.h:152] commit: 20945 abort: 9055 (0/9055/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:39.245368 11111 Coordinator.h:152] commit: 28338 abort: 12287 (0/12287/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:40.245759 11111 Coordinator.h:152] commit: 33157 abort: 14343 (0/14343/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:40.246109 11111 Coordinator.h:178] average commit: 29908.5 abort: 13091.5 (0/13091.5/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:40.249347 11122 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:28:40.249387 11121 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:28:40.249361 11120 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:28:40.249359 11119 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:28:40.249388 11118 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:28:40.246152 11111 AriaExecutor.h:654] Worker 0 latency: 14448 us (50%) 33555 us (75%) 104605 us (95%) 203407 us (99%).
+I0518 01:28:40.252815 11111 AriaExecutor.h:654] Worker 1 latency: 14184 us (50%) 30958 us (75%) 115077 us (95%) 171400 us (99%).
+I0518 01:28:40.258037 11111 AriaExecutor.h:654] Worker 2 latency: 14600 us (50%) 31073 us (75%) 109728 us (95%) 174794 us (99%).
+I0518 01:28:40.263259 11111 AriaExecutor.h:654] Worker 3 latency: 14344 us (50%) 30234 us (75%) 111572 us (95%) 180210 us (99%).
+I0518 01:28:40.268473 11111 Coordinator.h:203] total commit: 29908.5
+I0518 01:28:41.268635 11111 Coordinator.h:218] Coordinator exits.
+I0518 01:28:41.301658 11280 Database.h:65] ycsb initialization finished in 23 milliseconds.
+I0518 01:28:41.301780 11280 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:28:41.303929 11280 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:28:41.304032 11287 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:28:41.304051 11288 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:28:41.304162 11289 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:28:41.304181 11290 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:28:41.307747 11291 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:28:42.304358 11280 Coordinator.h:152] commit: 34854 abort: 15146 (0/15146/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:43.305372 11280 Coordinator.h:152] commit: 19041 abort: 8459 (0/8459/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:44.305648 11280 Coordinator.h:152] commit: 34791 abort: 15209 (0/15209/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:45.305905 11280 Coordinator.h:152] commit: 30686 abort: 13689 (0/13689/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:46.306167 11280 Coordinator.h:152] commit: 19531 abort: 8594 (0/8594/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:47.306447 11280 Coordinator.h:152] commit: 36672 abort: 15828 (0/15828/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:48.306887 11280 Coordinator.h:152] commit: 36489 abort: 16011 (0/16011/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:49.307330 11280 Coordinator.h:152] commit: 44982 abort: 20018 (0/20018/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:50.308446 11280 Coordinator.h:152] commit: 24137 abort: 10863 (0/10863/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:51.308595 11280 Coordinator.h:152] commit: 29548 abort: 12952 (0/12952/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:52.309440 11280 Coordinator.h:152] commit: 26104 abort: 11396 (0/11396/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:53.333359 11280 Coordinator.h:152] commit: 36722 abort: 15778 (0/15778/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:54.333489 11280 Coordinator.h:152] commit: 38135 abort: 16865 (0/16865/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:55.333612 11280 Coordinator.h:152] commit: 19116 abort: 8384 (0/8384/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:56.337432 11280 Coordinator.h:152] commit: 29626 abort: 12874 (0/12874/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:57.337586 11280 Coordinator.h:152] commit: 29603 abort: 12897 (0/12897/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:58.338029 11280 Coordinator.h:152] commit: 19033 abort: 8467 (0/8467/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:28:59.338156 11280 Coordinator.h:152] commit: 31299 abort: 13701 (0/13701/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:00.338591 11280 Coordinator.h:152] commit: 29567 abort: 12933 (0/12933/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:01.339893 11280 Coordinator.h:152] commit: 36553 abort: 15947 (0/15947/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:02.340289 11280 Coordinator.h:152] commit: 15202 abort: 6673 (0/6673/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:03.340745 11280 Coordinator.h:152] commit: 26160 abort: 11340 (0/11340/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:04.341158 11280 Coordinator.h:152] commit: 26526 abort: 11599 (0/11599/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:05.341639 11280 Coordinator.h:152] commit: 36468 abort: 16032 (0/16032/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:06.342059 11280 Coordinator.h:152] commit: 26053 abort: 11447 (0/11447/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:06.342422 11280 Coordinator.h:178] average commit: 29575.8 abort: 12924.2 (0/12924.2/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:06.342558 11280 AriaExecutor.h:654] Worker 0 latency: 13793 us (50%) 26079 us (75%) 98625 us (95%) 158775 us (99%).
+I0518 01:29:06.467355 11287 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:29:06.467356 11290 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:29:06.467352 11291 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:29:06.467368 11288 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:29:06.467352 11289 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:29:06.467585 11280 AriaExecutor.h:654] Worker 1 latency: 13804 us (50%) 24317 us (75%) 95500 us (95%) 163874 us (99%).
+I0518 01:29:06.473878 11280 AriaExecutor.h:654] Worker 2 latency: 13860 us (50%) 22869 us (75%) 107252 us (95%) 174342 us (99%).
+I0518 01:29:06.482331 11280 AriaExecutor.h:654] Worker 3 latency: 13979 us (50%) 27385 us (75%) 111634 us (95%) 169611 us (99%).
+I0518 01:29:06.488065 11280 Coordinator.h:203] total commit: 29575.8
+I0518 01:29:07.488253 11280 Coordinator.h:218] Coordinator exits.
+I0518 01:29:07.521608 11459 Database.h:65] ycsb initialization finished in 23 milliseconds.
+I0518 01:29:07.521737 11459 Coordinator.h:30] Coordinator initializes 4 workers.
+I0518 01:29:07.523972 11459 Coordinator.h:80] Coordinator starts to run 5 workers.
+I0518 01:29:07.524078 11466 AriaExecutor.h:76] AriaExecutor 0 started. 
+I0518 01:29:07.524098 11467 AriaExecutor.h:76] AriaExecutor 1 started. 
+I0518 01:29:07.524207 11468 AriaExecutor.h:76] AriaExecutor 2 started. 
+I0518 01:29:07.524365 11469 AriaExecutor.h:76] AriaExecutor 3 started. 
+I0518 01:29:07.527740 11470 Manager.h:224] Manager(worker id = 4) on the coordinator node started.
+I0518 01:29:08.526366 11459 Coordinator.h:152] commit: 27949 abort: 12051 (0/12051/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:09.526639 11459 Coordinator.h:152] commit: 23999 abort: 10376 (0/10376/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:10.526899 11459 Coordinator.h:152] commit: 21369 abort: 9256 (0/9256/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:11.530025 11459 Coordinator.h:152] commit: 31415 abort: 13585 (0/13585/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:12.530267 11459 Coordinator.h:152] commit: 24432 abort: 10568 (0/10568/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:13.530546 11459 Coordinator.h:152] commit: 31452 abort: 13548 (0/13548/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:14.530802 11459 Coordinator.h:152] commit: 22570 abort: 9930 (0/9930/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:15.531226 11459 Coordinator.h:152] commit: 26055 abort: 11445 (0/11445/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:16.531667 11459 Coordinator.h:152] commit: 25634 abort: 11241 (0/11241/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:17.532091 11459 Coordinator.h:152] commit: 30167 abort: 12958 (0/12958/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:18.533545 11459 Coordinator.h:152] commit: 29654 abort: 12846 (0/12846/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:19.533953 11459 Coordinator.h:152] commit: 27904 abort: 12096 (0/12096/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:20.534128 11459 Coordinator.h:152] commit: 19107 abort: 8393 (0/8393/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:21.534569 11459 Coordinator.h:152] commit: 31173 abort: 13827 (0/13827/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:22.534734 11459 Coordinator.h:152] commit: 38431 abort: 16569 (0/16569/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:23.534863 11459 Coordinator.h:152] commit: 32763 abort: 14112 (0/14112/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:24.553368 11459 Coordinator.h:152] commit: 16083 abort: 7042 (0/7042/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:25.565416 11459 Coordinator.h:152] commit: 36522 abort: 15978 (0/15978/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:26.565551 11459 Coordinator.h:152] commit: 43231 abort: 18644 (0/18644/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:27.565697 11459 Coordinator.h:152] commit: 28364 abort: 12261 (0/12261/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:28.565847 11459 Coordinator.h:152] commit: 27689 abort: 12311 (0/12311/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:29.566013 11459 Coordinator.h:152] commit: 20373 abort: 9002 (0/9002/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:30.566167 11459 Coordinator.h:152] commit: 24792 abort: 10833 (0/10833/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:31.566314 11459 Coordinator.h:152] commit: 29218 abort: 12657 (0/12657/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:32.566468 11459 Coordinator.h:152] commit: 26165 abort: 11335 (0/11335/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:32.566804 11459 Coordinator.h:178] average commit: 30323.2 abort: 13176.8 (0/13176.8/0), network size: 0, avg network size: 0, si_in_serializable: 0 0 %, local: 0 %
+I0518 01:29:32.566936 11459 AriaExecutor.h:654] Worker 0 latency: 14331 us (50%) 31541 us (75%) 87738 us (95%) 182176 us (99%).
+I0518 01:29:32.617348 11470 Manager.h:227] Manager(worker id = 4) on the coordinator node exits.
+I0518 01:29:32.617383 11468 AriaExecutor.h:85] AriaExecutor 2 exits. 
+I0518 01:29:32.617362 11467 AriaExecutor.h:85] AriaExecutor 1 exits. 
+I0518 01:29:32.617367 11466 AriaExecutor.h:85] AriaExecutor 0 exits. 
+I0518 01:29:32.617367 11469 AriaExecutor.h:85] AriaExecutor 3 exits. 
+I0518 01:29:32.617590 11459 AriaExecutor.h:654] Worker 1 latency: 14391 us (50%) 32368 us (75%) 88516 us (95%) 149701 us (99%).
+I0518 01:29:32.622890 11459 AriaExecutor.h:654] Worker 2 latency: 14427 us (50%) 33695 us (75%) 87897 us (95%) 131753 us (99%).
+I0518 01:29:32.628108 11459 AriaExecutor.h:654] Worker 3 latency: 14333 us (50%) 35393 us (75%) 86066 us (95%) 128251 us (99%).
+I0518 01:29:32.633400 11459 Coordinator.h:203] total commit: 30323.2
+I0518 01:29:33.633570 11459 Coordinator.h:218] Coordinator exits.
