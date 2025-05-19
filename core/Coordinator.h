@@ -17,6 +17,8 @@
 #include <thread>
 #include <vector>
 
+#include "common/TimeCap.h"
+
 namespace aria {
 
 class Coordinator {
@@ -127,25 +129,25 @@ public:
       }
 
       // Adaptive batch sizing
-      double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
-      (n_commit + 1);  // avoid divide-by-zero
+      // double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
+      // (n_commit + 1);  // avoid divide-by-zero
 
-      bool adaptive_batch_enabled = true;
+      // bool adaptive_batch_enabled = true;
 
-      // Batch sizing code, uncomment when you want to use it 
+      // // Batch sizing code, uncomment when you want to use it 
 
-      // if (adaptive_batch_enabled) {
-      //   double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
-      //                       (n_commit + 1);
+      // // if (adaptive_batch_enabled) {
+      // //   double abort_rate = 1.0 * (n_abort_no_retry + n_abort_lock + n_abort_read_validation) /
+      // //                       (n_commit + 1);
       
-      //   if (abort_rate > 0.25 && adaptive_batch_size > 100) {
-      //     adaptive_batch_size /= 2;
-      //     LOG(INFO) << "High abort rate. Shrinking batch size to " << adaptive_batch_size;
-      //   } else if (abort_rate < 0.05 && adaptive_batch_size < 4000) {
-      //     adaptive_batch_size *= 2;
-      //     LOG(INFO) << "Low abort rate. Increasing batch size to " << adaptive_batch_size;
-      //   }
-      // }
+      // //   if (abort_rate > 0.25 && adaptive_batch_size > 100) {
+      // //     adaptive_batch_size /= 2;
+      // //     LOG(INFO) << "High abort rate. Shrinking batch size to " << adaptive_batch_size;
+      // //   } else if (abort_rate < 0.05 && adaptive_batch_size < 4000) {
+      // //     adaptive_batch_size *= 2;
+      // //     LOG(INFO) << "Low abort rate. Increasing batch size to " << adaptive_batch_size;
+      // //   }
+      // // }
       
       
 
@@ -167,6 +169,53 @@ public:
         total_local += n_local;
         total_si_in_serializable += n_si_in_serializable;
         total_network_size += n_network_size;
+      }
+
+      // ADAPTIVE TIME CONTROLLER
+      static double ewma_abort = 0.0;
+
+      uint64_t n_abort =
+              n_abort_no_retry + n_abort_lock + n_abort_read_validation;
+      double  abort_rate = (n_commit == 0) ? 0.0
+                                          : 1.0 * n_abort / n_commit;
+
+      
+
+      double alpha = FLAGS_adapt_time_alpha;
+      ewma_abort = alpha * abort_rate + (1.0 - alpha) * ewma_abort;
+
+      uint32_t cap = aria::g_batch_time_ms.load(std::memory_order_relaxed);
+      uint32_t new_cap = cap;          // default = unchanged
+
+      // LOG(INFO) << "abort_rate=" << abort_rate
+      //           << "cap=" << aria::g_batch_time_ms.load(std::memory_order_relaxed)
+      //           << "ewma_abort=" << ewma_abort
+      //           << "adapt_abort_low=" << FLAGS_adapt_abort_low
+      //           << "adapt_abort_high=" << FLAGS_adapt_abort_high;
+
+      if (ewma_abort > FLAGS_adapt_abort_high && cap > FLAGS_batch_time_ms_min) {
+          new_cap = std::max<uint32_t>(FLAGS_batch_time_ms_min,
+                                      static_cast<uint32_t>(cap * 0.8));   // shrink
+          // LOG(INFO) << ewma_abort << " > " << FLAGS_adapt_abort_high
+          //           << "SHRINKING...";
+      }
+      else if (ewma_abort < FLAGS_adapt_abort_low && cap < FLAGS_batch_time_ms_max) {
+          new_cap = std::min<uint32_t>(FLAGS_batch_time_ms_max,
+                                      static_cast<uint32_t>(cap * 1.25));  // grow
+          
+          // LOG(INFO) << ewma_abort << " < " << FLAGS_adapt_abort_low
+          //           << "GROWING...";
+      }
+
+      if (new_cap != cap) {
+          aria::g_batch_time_ms.store(new_cap, std::memory_order_relaxed);
+          LOG(INFO) << "[adaptive-cap] abort_rate=" << abort_rate
+                    << " ewma=" << ewma_abort
+                    << " → cap=" << new_cap << " ms";
+      }
+
+      if (count > timeToRun) {
+        break;
       }
 
     } while (std::chrono::duration_cast<std::chrono::seconds>(

@@ -10,6 +10,8 @@
 #include "protocol/Aria/AriaExecutor.h"
 #include "protocol/Aria/AriaHelper.h"
 #include "protocol/Aria/AriaTransaction.h"
+#include "core/Macros.h"
+#include "common/TimeCap.h" 
 
 #include <atomic>
 #include <thread>
@@ -55,11 +57,45 @@ public:
       epoch.fetch_add(1);
       cleanup_batch();
 
+      // READ PHASE
+
+      // record start of this epoch
+      auto epoch_start = std::chrono::steady_clock::now();
+
       // LOG(INFO) << "Seed: " << random.get_seed();
       n_started_workers.store(0);
       n_completed_workers.store(0);
       signal_worker(ExecutorStatus::Aria_READ);
       wait_all_workers_start();
+
+      // flush the transactions early if there is a batch time set
+      while (true) {
+        if (n_completed_workers.load() == n_workers) break;
+
+        // FIXED BATCH TIME
+        // if (FLAGS_batch_time_ms > 0 &&
+        //     std::chrono::duration_cast<std::chrono::milliseconds>(
+        //         std::chrono::steady_clock::now() - epoch_start)
+        //         .count() >= FLAGS_batch_time_ms) {
+        //   broadcast_stop();
+        //   break;
+        // }
+
+        // ADAPTIVE BATCH TIME
+        auto cap = aria::g_batch_time_ms.load(std::memory_order_relaxed);
+        auto elapsed_ms =
+        static_cast<std::size_t>(
+            std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::steady_clock::now() - epoch_start)
+            .count());
+
+        if (elapsed_ms >= cap) {
+            broadcast_stop();
+            break;
+        }
+
+        std::this_thread::yield();
+      }
       wait_all_workers_finish();
       broadcast_stop();
       wait4_stop(n_coordinators - 1);
@@ -69,11 +105,45 @@ public:
       // wait for all machines until they finish the Aria_READ phase.
       wait4_ack();
 
+      // COMMIT PHASE
+      epoch_start = std::chrono::steady_clock::now();
+
       // Allow each worker to commit transactions
       n_started_workers.store(0);
       n_completed_workers.store(0);
       signal_worker(ExecutorStatus::Aria_COMMIT);
       wait_all_workers_start();
+
+      // flush the transactions early if there is a batch time set
+      while (true) {
+        if (n_completed_workers.load() == n_workers) break;
+        
+        // FIXED BATCH TIME
+        // if (FLAGS_batch_time_ms > 0 &&
+        //     std::chrono::duration_cast<std::chrono::milliseconds>(
+        //         std::chrono::steady_clock::now() - epoch_start)
+        //         .count() >= FLAGS_batch_time_ms) {
+        //   broadcast_stop();
+        //   break;
+        // }
+
+        // ADAPTIVE BATCH TIME
+        auto cap = aria::g_batch_time_ms.load(std::memory_order_relaxed);
+        auto elapsed_ms =
+        static_cast<std::size_t>(
+            std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::steady_clock::now() - epoch_start)
+            .count());
+
+        if (elapsed_ms >= cap) {
+            broadcast_stop();
+            break;
+        }
+
+
+        std::this_thread::yield();
+      }
+      
       wait_all_workers_finish();
       broadcast_stop();
       wait4_stop(n_coordinators - 1);

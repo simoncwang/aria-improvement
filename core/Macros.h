@@ -7,6 +7,26 @@
 #include "glog/logging.h"
 #include <boost/algorithm/string/split.hpp>
 
+// NEW ADDITION FOR BATCH TIME
+DEFINE_uint32(batch_time_ms , 0 ,
+    "Cap an Aria epoch at this many milliseconds (0 = no cap)");
+
+
+// ADAPTIVE BATCH TIMING
+// DEFINE_uint32(batch_time_ms_init , 5 ,   // initial cap
+//     "Initial wall-clock cap for an Aria epoch (ms)");
+DEFINE_uint32(batch_time_ms_min  , 1 ,   // lower bound
+    "Minimum wall-clock cap (ms)");
+DEFINE_uint32(batch_time_ms_max  , 50 ,  // upper bound
+    "Maximum wall-clock cap (ms)");
+
+DEFINE_double(adapt_abort_low  , 0.10 ,  // 10 %
+    "Abort-rate threshold below which we enlarge the cap");
+DEFINE_double(adapt_abort_high , 0.25 ,  // 25 %
+    "Abort-rate threshold above which we shrink the cap");
+DEFINE_double(adapt_time_alpha , 0.30 ,  
+    "Smoothing factor (α) for adaptive time cap");
+
 DEFINE_string(servers, "127.0.0.1:10010",
               "semicolon-separated list of servers");
 DEFINE_int32(id, 0, "coordinator id");

@@ -13,6 +13,8 @@ find_library(jemalloc_lib jemalloc) # jemalloc 5.0
 # get all project files
 file(GLOB_RECURSE ALL_SOURCE_FILES benchmark/*.h common/*.h core/*.h protocol/*.h bench*.cpp)
 
+
+
 add_custom_target(
         format
         COMMAND clang-format
@@ -25,6 +27,7 @@ add_custom_target(
 include_directories(${CMAKE_SOURCE_DIR})
 
 file(GLOB_RECURSE COMMON_SOURCE_FILES common/*.cpp)
+
 add_library(common STATIC ${COMMON_SOURCE_FILES})
 
 if(APPLE)

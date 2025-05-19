@@ -136,6 +136,10 @@ public:
     auto cur_epoch = epoch.load();
     auto n_abort = total_abort.load();
     std::size_t count = 0;
+
+    // Start timing the batch
+    auto batch_start_time = std::chrono::steady_clock::now();
+
     for (auto i = id; i < transactions.size(); i += context.worker_num) {
 
       process_request();
@@ -193,6 +197,8 @@ public:
 
 
       n_network_size.fetch_add(transactions[i]->network_size);
+
+      // Track aborts
       if (result == TransactionResult::ABORT_NORETRY) {
         transactions[i]->abort_no_retry = true;
       } 
@@ -211,6 +217,29 @@ public:
       }
     }
     flush_messages();
+
+     // End timing the batch
+     auto batch_end_time = std::chrono::steady_clock::now();
+     auto batch_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+         batch_end_time - batch_start_time).count();
+ 
+     // Calculate metrics
+     double abort_rate = static_cast<double>(n_abort) / count;
+     double throughput = static_cast<double>(count) / (batch_duration / 1000.0);
+ 
+     LOG(INFO) << "Batch completed: "
+               << "Abort rate = " << abort_rate
+               << ", Throughput = " << throughput
+               << ", Batch duration = " << batch_duration << " ms";
+ 
+     // Adjust batch size
+    //  if (abort_rate > 0.25 && adaptive_batch_size > 100) {
+    //      adaptive_batch_size /= 2;
+    //      LOG(INFO) << "High abort rate. Shrinking batch size to " << adaptive_batch_size;
+    //  } else if (abort_rate < 0.05 && adaptive_batch_size < 4000) {
+    //      adaptive_batch_size *= 2;
+    //      LOG(INFO) << "Low abort rate. Increasing batch size to " << adaptive_batch_size;
+    //  }
 
     // reserve
     count = 0;
