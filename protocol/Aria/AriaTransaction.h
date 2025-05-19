@@ -137,6 +137,7 @@ public:
     return writeSet.size() - 1;
   }
 
+  // Workload-Aware Dynamic Batching 
   std::size_t estimate_size() const {
     // Batch based on coordinator and partion id
     // if (partition_id == coordinator_id) {

@@ -193,12 +193,12 @@ public:
       //   continue;  // skip reservation; defer this txn to next batch
       // }
 
-      // Dynamic batching 
-      if (transactions[i]->estimate_size() <= 15) {
-        short_transactions.push_back(i);
-      } else {
-        long_transactions.push_back(i);
-      }
+      // Workload-Aware Dynamic Batching 
+      // if (transactions[i]->estimate_size() <= 15) {
+      //   short_transactions.push_back(i);
+      // } else {
+      //   long_transactions.push_back(i);
+      // }
       
       n_network_size.fetch_add(transactions[i]->network_size);
       if (result == TransactionResult::ABORT_NORETRY) {
@@ -220,39 +220,64 @@ public:
     }
     flush_messages();
 
-    // std::cout << "short transactions: " << short_transactions.size() << std::endl;
-    // std::cout << "long transactions: " << long_transactions.size() << std::endl;
-    // reserve
-    // Process short transactions
+    // Workload-Aware Dynamic Batching: Process short transactions
+    // count = 0;
+    // for (auto i : short_transactions) {
+
+    //   if (transactions[i]->abort_no_retry) {
+    //     continue;
+    //   }
+
+    //   count++;
+
+    //   // wait till all reads are processed
+    //   while (transactions[i]->pendingResponses > 0) {
+    //     process_request();
+    //   }
+
+    //   transactions[i]->execution_phase = true;
+    //   // fill in writes in write set
+    //   transactions[i]->execute(id);
+
+    //   // start reservation
+    //   reserve_transaction(*transactions[i]);
+    //   if (count % context.batch_flush == 0) {
+    //     flush_messages();
+    //   }
+    // }
+    // flush_messages();
+
+    // Workload-Aware Dynamic Batching" Process long transactions  
+    // count = 0;
+    // for (auto i : long_transactions) {
+
+    //   if (transactions[i]->abort_no_retry) {
+    //     continue;
+    //   }
+
+    //   count++;
+
+    //   // wait till all reads are processed
+    //   while (transactions[i]->pendingResponses > 0) {
+    //     process_request();
+    //   }
+
+    //   transactions[i]->execution_phase = true;
+    //   // fill in writes in write set
+    //   transactions[i]->execute(id);
+
+    //   // start reservation
+    //   reserve_transaction(*transactions[i]);
+    //   if (count % context.batch_flush == 0) {
+    //     flush_messages();
+    //   }
+    // }
+    // flush_messages();
+    // }
+
+    
     count = 0;
-    for (auto i : short_transactions) {
-
-      if (transactions[i]->abort_no_retry) {
-        continue;
-      }
-
-      count++;
-
-      // wait till all reads are processed
-      while (transactions[i]->pendingResponses > 0) {
-        process_request();
-      }
-
-      transactions[i]->execution_phase = true;
-      // fill in writes in write set
-      transactions[i]->execute(id);
-
-      // start reservation
-      reserve_transaction(*transactions[i]);
-      if (count % context.batch_flush == 0) {
-        flush_messages();
-      }
-    }
-    flush_messages();
-
-    // Process long transactions  
-    count = 0;
-    for (auto i : long_transactions) {
+    for (auto i = id; i < transactions.size(); i += context.worker_num) {
 
       if (transactions[i]->abort_no_retry) {
         continue;
@@ -277,34 +302,6 @@ public:
     }
     flush_messages();
   }
-
-    
-  //   count = 0;
-  //   for (auto i = id; i < transactions.size(); i += context.worker_num) {
-
-  //     if (transactions[i]->abort_no_retry) {
-  //       continue;
-  //     }
-
-  //     count++;
-
-  //     // wait till all reads are processed
-  //     while (transactions[i]->pendingResponses > 0) {
-  //       process_request();
-  //     }
-
-  //     transactions[i]->execution_phase = true;
-  //     // fill in writes in write set
-  //     transactions[i]->execute(id);
-
-  //     // start reservation
-  //     reserve_transaction(*transactions[i]);
-  //     if (count % context.batch_flush == 0) {
-  //       flush_messages();
-  //     }
-  //   }
-  //   flush_messages();
-  // }
 
   void reserve_transaction(TransactionType &txn) {
 
@@ -428,8 +425,8 @@ public:
 
   void commit_transactions() {
     std::size_t count = 0;
-    // for (auto i = id; i < transactions.size(); i += context.worker_num) {
-    for (auto i : short_transactions) {  
+    for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    // for (auto i : short_transactions) {  // Workload-Aware Dynamic Batching 
       if (transactions[i]->abort_no_retry) {
         continue;
       }
@@ -443,24 +440,25 @@ public:
     }
     flush_messages();
 
+    // Workload-Aware Dynamic Batching 
+    // count = 0;
+    // for (auto i : long_transactions) {  
+    //   if (transactions[i]->abort_no_retry) {
+    //     continue;
+    //   }
+
+    //   count++;
+
+    //   analyze_dependency(*transactions[i]);
+    //   if (count % context.batch_flush == 0) {
+    //     flush_messages();
+    //   }
+    // }
+    // flush_messages();
+
     count = 0;
-    for (auto i : long_transactions) {  
-      if (transactions[i]->abort_no_retry) {
-        continue;
-      }
-
-      count++;
-
-      analyze_dependency(*transactions[i]);
-      if (count % context.batch_flush == 0) {
-        flush_messages();
-      }
-    }
-    flush_messages();
-
-    count = 0;
-    // for (auto i = id; i < transactions.size(); i += context.worker_num) {
-    for (auto i : short_transactions) {  
+    for (auto i = id; i < transactions.size(); i += context.worker_num) {
+    // for (auto i : short_transactions) {  // Workload-Aware Dynamic Batching 
       if (transactions[i]->abort_no_retry) {
         n_abort_no_retry.fetch_add(1);
         continue;
@@ -535,81 +533,82 @@ public:
     }
     flush_messages();
 
-    count = 0;
-    for (auto i : long_transactions) {  
-      if (transactions[i]->abort_no_retry) {
-        n_abort_no_retry.fetch_add(1);
-        continue;
-      }
-      count++;
+    // Workload-Aware Dynamic Batching 
+    // count = 0;
+    // for (auto i : long_transactions) {  
+    //   if (transactions[i]->abort_no_retry) {
+    //     n_abort_no_retry.fetch_add(1);
+    //     continue;
+    //   }
+    //   count++;
 
-      // wait till all checks are processed
-      while (transactions[i]->pendingResponses > 0) {
-        process_request();
-      }
+    //   // wait till all checks are processed
+    //   while (transactions[i]->pendingResponses > 0) {
+    //     process_request();
+    //   }
 
-      if (context.aria_read_only_optmization &&
-          transactions[i]->is_read_only()) {
-        n_commit.fetch_add(1);
-        auto latency =
-            std::chrono::duration_cast<std::chrono::microseconds>(
-                std::chrono::steady_clock::now() - transactions[i]->startTime)
-                .count();
-        percentile.add(latency);
-        continue;
-      }
+    //   if (context.aria_read_only_optmization &&
+    //       transactions[i]->is_read_only()) {
+    //     n_commit.fetch_add(1);
+    //     auto latency =
+    //         std::chrono::duration_cast<std::chrono::microseconds>(
+    //             std::chrono::steady_clock::now() - transactions[i]->startTime)
+    //             .count();
+    //     percentile.add(latency);
+    //     continue;
+    //   }
 
-      if (transactions[i]->waw) {
-        protocol.abort(*transactions[i], messages);
-        n_abort_lock.fetch_add(1);
-        continue;
-      }
+    //   if (transactions[i]->waw) {
+    //     protocol.abort(*transactions[i], messages);
+    //     n_abort_lock.fetch_add(1);
+    //     continue;
+    //   }
 
-      if (context.aria_snapshot_isolation) {
-        protocol.commit(*transactions[i], messages);
-        n_commit.fetch_add(1);
-        auto latency =
-            std::chrono::duration_cast<std::chrono::microseconds>(
-                std::chrono::steady_clock::now() - transactions[i]->startTime)
-                .count();
-        percentile.add(latency);
-      } else {
-        if (context.aria_reordering_optmization) {
-          if (transactions[i]->war == false || transactions[i]->raw == false) {
-            protocol.commit(*transactions[i], messages);
-            n_commit.fetch_add(1);
-            auto latency =
-                std::chrono::duration_cast<std::chrono::microseconds>(
-                    std::chrono::steady_clock::now() -
-                    transactions[i]->startTime)
-                    .count();
-            percentile.add(latency);
-          } else {
-            n_abort_lock.fetch_add(1);
-            protocol.abort(*transactions[i], messages);
-          }
-        } else {
-          if (transactions[i]->raw) {
-            n_abort_lock.fetch_add(1);
-            protocol.abort(*transactions[i], messages);
-          } else {
-            protocol.commit(*transactions[i], messages);
-            n_commit.fetch_add(1);
-            auto latency =
-                std::chrono::duration_cast<std::chrono::microseconds>(
-                    std::chrono::steady_clock::now() -
-                    transactions[i]->startTime)
-                    .count();
-            percentile.add(latency);
-          }
-        }
-      }
+    //   if (context.aria_snapshot_isolation) {
+    //     protocol.commit(*transactions[i], messages);
+    //     n_commit.fetch_add(1);
+    //     auto latency =
+    //         std::chrono::duration_cast<std::chrono::microseconds>(
+    //             std::chrono::steady_clock::now() - transactions[i]->startTime)
+    //             .count();
+    //     percentile.add(latency);
+    //   } else {
+    //     if (context.aria_reordering_optmization) {
+    //       if (transactions[i]->war == false || transactions[i]->raw == false) {
+    //         protocol.commit(*transactions[i], messages);
+    //         n_commit.fetch_add(1);
+    //         auto latency =
+    //             std::chrono::duration_cast<std::chrono::microseconds>(
+    //                 std::chrono::steady_clock::now() -
+    //                 transactions[i]->startTime)
+    //                 .count();
+    //         percentile.add(latency);
+    //       } else {
+    //         n_abort_lock.fetch_add(1);
+    //         protocol.abort(*transactions[i], messages);
+    //       }
+    //     } else {
+    //       if (transactions[i]->raw) {
+    //         n_abort_lock.fetch_add(1);
+    //         protocol.abort(*transactions[i], messages);
+    //       } else {
+    //         protocol.commit(*transactions[i], messages);
+    //         n_commit.fetch_add(1);
+    //         auto latency =
+    //             std::chrono::duration_cast<std::chrono::microseconds>(
+    //                 std::chrono::steady_clock::now() -
+    //                 transactions[i]->startTime)
+    //                 .count();
+    //         percentile.add(latency);
+    //       }
+    //     }
+    //   }
 
-      if (count % context.batch_flush == 0) {
-        flush_messages();
-      }
-    }
-    flush_messages();
+    //   if (count % context.batch_flush == 0) {
+    //     flush_messages();
+    //   }
+    // }
+    // flush_messages();
   }
 
   void setupHandlers(TransactionType &txn) {
