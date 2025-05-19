@@ -132,6 +132,8 @@ public:
   }
 
   void read_snapshot() {
+    std::vector<int> txn_backoff_time(transactions.size(), 50); // Initial backoff = 50μs
+
     // load epoch
     auto cur_epoch = epoch.load();
     auto n_abort = total_abort.load();
@@ -197,12 +199,25 @@ public:
         transactions[i]->abort_no_retry = true;
       } 
       
+      else if (result == TransactionResult::ABORT) {
+                // ─── RANDOM BACKOFF ───
+                // sleep 0–199 microseconds before retrying to reduce conflicts
+                int backoff_us = rand() % 200;
+                std::this_thread::sleep_for(
+                    std::chrono::microseconds(backoff_us));
+      }
+
+      // Dynamic backoff
       // else if (result == TransactionResult::ABORT) {
-      //           // ─── RANDOM BACKOFF ───
-      //           // sleep 0–49 microseconds before retrying to reduce conflicts
-      //           int backoff_us = rand() % 50;
-      //           std::this_thread::sleep_for(
-      //               std::chrono::microseconds(backoff_us));
+      //   // Adaptive exponential backoff
+      //   int backoff_us = txn_backoff_time[i];
+      //   std::this_thread::sleep_for(std::chrono::microseconds(backoff_us));
+      
+      //   // Increase backoff, capped at 1000us
+      //   txn_backoff_time[i] = std::min(backoff_us * 2, 1000);
+      // } else {
+      //   // On any successful non-abort execution, reset backoff
+      //   txn_backoff_time[i] = 50;
       // }
 
 
